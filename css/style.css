@@ -228,10 +228,12 @@ h2.subtitle{
 
 .footer{
     flex: 1;
-    padding-bottom: 15px;
+    padding: 0 15px;
     text-align: center;
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+.footer iframe{
+    margin-bottom: 15px;
 }
