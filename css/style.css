@@ -5,11 +5,9 @@
     box-sizing: border-box;
 }
 html,body{
-    height: 100%;
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
     color:#776e65;
     font-size: 18px;
-    overflow: hidden;
     background: rgba(238, 228, 218, 0.5);
 }
 a{
@@ -21,9 +19,11 @@ a{
 .container{
     position: relative;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     padding: 5px 1px;
     width: 450px;
-    height: 100%;
+    min-height: 100vh;
     box-sizing: content-box;
     /* border: 1px solid red; */
 }
@@ -224,4 +224,13 @@ h2.subtitle{
 .over-container p{
     font-size: 60px;
     font-weight: bold;
+}
+
+.footer{
+    flex: 1;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }

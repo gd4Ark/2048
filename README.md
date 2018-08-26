@@ -6,4 +6,4 @@
 
 ![](https://ws1.sinaimg.cn/large/006mS5wEgy1fumy747s2pj30u01qgwgn.jpg)
 
-如果对您有帮助欢迎Star！Star
+如果对您有帮助欢迎Star！
