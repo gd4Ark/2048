@@ -228,6 +228,7 @@ h2.subtitle{
 
 .footer{
     flex: 1;
+    padding-bottom: 15px;
     text-align: center;
     height: 50px;
     display: flex;
