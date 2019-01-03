@@ -7,7 +7,6 @@ function event(game){
     var gameContainer = $('.game-container')[0];
 
     on(window,'keydown',function(e){
-        e.preventDefault();
         if (down) return;
         down = true;
         var num = e.keyCode - 37;

@@ -9,6 +9,7 @@ html,body{
     color:#776e65;
     font-size: 18px;
     background: rgba(238, 228, 218, 0.5);
+    overflow: hidden;
 }
 a{
     text-decoration: none;
@@ -228,12 +229,10 @@ h2.subtitle{
 
 .footer{
     flex: 1;
-    padding: 0 15px;
+    padding: 15px 0;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-end;
-}
-.footer iframe{
-    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
