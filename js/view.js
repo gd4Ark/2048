@@ -1,118 +1,118 @@
-var View = (function(){
+var View = (function () {
 
     var tileContainer = $('.tile-container')[0];
     var scoreContainer = $('.score-container')[0];
     var scoreDom = $('.score-container .score')[0];
     var scoreAddition = $('.score-addition')[0];
-    var bestDom= $('.best-container .score')[0];
+    var bestDom = $('.best-container .score')[0];
     var overContainer = $('.over-container')[0];
 
-    var View = function(){
+    var View = function () {
 
     };
 
     View.prototype = {
-        setup : function(){
+        setup: function () {
             overContainer.classList.remove('action');
             this.updateScore(data.score);
             this.updateBest();
         },
-        restart : function(){
+        restart: function () {
             tileContainer.innerHTML = "";
         },
-        resize : function(){
+        resize: function () {
             var _this = this;
-            data.cell.forEach(function(el,index){
+            data.cell.forEach(function (el, index) {
                 var tile = _this.getTile(index);
                 if (!tile) return;
                 var pos = _this.getPos(indexToPos(index));
-                _this.setPos(tile,pos);
+                _this.setPos(tile, pos);
             });
         },
-        over : function(){
+        over: function () {
             overContainer.classList.add('action');
         },
-        restoreTile : function(){
+        restoreTile: function () {
             var _this = this;
-            data.cell.forEach(function(el,index){
-                if (el.val !== 0){
+            data.cell.forEach(function (el, index) {
+                if (el.val !== 0) {
                     _this.appear(index);
                 }
             });
         },
-        addScoreAnimation: function(score){
+        addScoreAnimation: function (score) {
             if (!score) return;
             scoreAddition.innerHTML = '+' + score;
             scoreAddition.classList.add('action');
-            setTimeout(function(){
+            setTimeout(function () {
                 scoreAddition.classList.remove('action');
-            },500);
+            }, 500);
         },
-        updateScore : function(score){
+        updateScore: function (score) {
             scoreDom.innerHTML = data.score;
             this.addScoreAnimation(score);
         },
-        updateBest : function(){
+        updateBest: function () {
             bestDom.innerHTML = data.best;
         },
-        setInfo : function(elem,pos,index){
+        setInfo: function (elem, pos, index) {
             elem.style.left = pos.left + 'px';
             elem.style.top = pos.top + 'px';
-            elem.setAttribute('data-index',index);
+            elem.setAttribute('data-index', index);
         },
-        getTile : function(index){
+        getTile: function (index) {
             return $(`.tile[data-index='${index}']`)[0];
         },
-        getPos : function(pos){
+        getPos: function (pos) {
             var gridCell = $(`.grid-row:nth-child(${pos.y+1}) .grid-cell:nth-child(${pos.x+1})`)[0];
             return {
-                left : gridCell.offsetLeft,
-                top : gridCell.offsetTop,
+                left: gridCell.offsetLeft,
+                top: gridCell.offsetTop,
             }
         },
-        setPos : function(elem,pos){
+        setPos: function (elem, pos) {
             elem.style.left = pos.left + 'px';
             elem.style.top = pos.top + 'px';
         },
-        createTileHTML : function(obj){
+        createTileHTML: function (obj) {
             var tile = document.createElement('div');
             tile.className = obj.classNames;
             tile.innerHTML = obj.val;
-            tile.setAttribute('data-index',obj.index);
-            tile.setAttribute('data-val',obj.val);
-            this.setPos(tile,obj.pos);
+            tile.setAttribute('data-index', obj.index);
+            tile.setAttribute('data-val', obj.val);
+            this.setPos(tile, obj.pos);
             return tile;
         },
-        appear : function(index){
+        appear: function (index) {
             var last = data.cell[index];
             var pos = this.getPos(indexToPos(index));
             var newTile = this.createTileHTML({
-                val : last.val,
-                pos : pos,
-                index : index,
-                classNames : " tile new-tile",
+                val: last.val,
+                pos: pos,
+                index: index,
+                classNames: " tile new-tile",
             });
             tileContainer.appendChild(newTile);
         },
-        remove : function(index){
+        remove: function (index) {
             var tile = this.getTile(index);
             tile.parentElement.removeChild(tile);
         },
-        move : function(old_index,index){
+        move: function (old_index, index) {
             var tile = this.getTile(old_index);
             var pos = this.getPos(indexToPos(index));
-            this.setInfo(tile,pos,index);
+            this.setInfo(tile, pos, index);
         },
-        updateVal : function(index){
+        updateVal: function (index) {
             var tile = this.getTile(index);
             var val = data.cell[index].val;
-            tile.setAttribute('data-val',val);
+            tile.setAttribute('data-val', val);
             tile.innerHTML = val;
             tile.classList.add('addition');
-            setTimeout(function(){
+            setTimeout(function () {
                 tile.classList.remove('addition');
                 tile.classList.remove('new-tile');
-            },300);
+            }, 300);
         },
     }
 

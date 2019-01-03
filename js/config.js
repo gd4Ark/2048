@@ -1,3 +1,3 @@
 var config = {
-    bonus_point : 4,
+    bonus_point: 4,
 }
