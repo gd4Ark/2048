@@ -4,6 +4,6 @@
 
 游戏截图：
 
-![](https://ws1.sinaimg.cn/large/006mS5wEgy1fumy6n8lpkj311y0lcq3r.jpg)
+![](https://ws1.sinaimg.cn/large/006mS5wEgy1fzy0t6zcp4j31200n30tt.jpg)
 
 如果对您有帮助欢迎Star！😋
