@@ -27,15 +27,13 @@ a {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 5px 1px;
     width: 450px;
-    min-height: 100vh;
+    height: 100vh;
     box-sizing: content-box;
-    /* border: 1px solid red; */
 }
 
 .heading {
-    margin-bottom: 15px;
+    margin: 20px 0;
 }
 
 .heading {
@@ -101,7 +99,6 @@ h1.title {
 .restart-btn {
     margin: 5px 0 0 5px;
     float: right;
-    display: inline-block;
     padding: 0 8px;
     background: #8f7a66;
     color: white;
@@ -138,9 +135,6 @@ h2.subtitle {
     height: 426px;
 }
 
-.grid-container {
-    /* border: 1px solid red; */
-}
 
 .grid-row {
     display: flex;
@@ -166,10 +160,6 @@ h2.subtitle {
 
 .grid-cell:nth-of-type(4n) {
     margin-right: 0;
-}
-
-.tile-container {
-    /* border: 1px solid red; */
 }
 
 .tile {
@@ -278,7 +268,7 @@ h2.subtitle {
 
 .footer {
     flex: 1;
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: center;
     display: flex;
     justify-content: space-around;
