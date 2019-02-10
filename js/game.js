@@ -47,12 +47,25 @@ var Game = (function () {
                 socre: data.score,
             });
         },
-        over: function () {
+        winning(){
             over = true;
             localStorage.gameState = '';
-            this.view.over();
+            this.view.winning();
         },
-        checkOver: function () {
+        checkWinning(){
+            var isWinning = cell.find(function(el){
+                return el.val === config.max
+            });
+            if (isWinning){
+                this.winning();
+            }
+        },
+        failure: function () {
+            over = true;
+            localStorage.gameState = '';
+            this.view.failure();
+        },
+        checkfailure: function () {
             var _this = this;
             var same = false;
             var called = function (arr, str) {
@@ -65,7 +78,7 @@ var Game = (function () {
             called(this.chunkY(), 'y');
             setTimeout(function () {
                 if (!same) {
-                    _this.over();
+                    _this.failure();
                 }
             });
         },
@@ -187,8 +200,9 @@ var Game = (function () {
                 move = false;
             }
             this.save();
+            this.checkWinning();
             if (this.isFull()) {
-                this.checkOver();
+                this.checkfailure();
             }
             return {
                 move: _move,

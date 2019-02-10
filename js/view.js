@@ -5,7 +5,8 @@ var View = (function () {
     var scoreDom = $('.score-container .score')[0];
     var scoreAddition = $('.score-addition')[0];
     var bestDom = $('.best-container .score')[0];
-    var overContainer = $('.over-container')[0];
+    var failureContainer = $('.failure-container')[0];
+    var winningContainer = $('.winning-container')[0];
 
     var View = function () {
 
@@ -13,7 +14,8 @@ var View = (function () {
 
     View.prototype = {
         setup: function () {
-            overContainer.classList.remove('action');
+            failureContainer.classList.remove('action');
+            winningContainer.classList.remove('action');
             this.updateScore(data.score);
             this.updateBest();
         },
@@ -29,8 +31,11 @@ var View = (function () {
                 _this.setPos(tile, pos);
             });
         },
-        over: function () {
-            overContainer.classList.add('action');
+        failure: function () {
+            failureContainer.classList.add('action');
+        },
+        winning: function () {
+            winningContainer.classList.add('action');
         },
         restoreTile: function () {
             var _this = this;

@@ -2,8 +2,6 @@ function event(game) {
 
     var down = false;
 
-
-
     var gameContainer = $('.game-container')[0];
 
     on(window, 'keydown', function (e) {
@@ -33,12 +31,16 @@ function event(game) {
     });
 
     // 自动测试
+    var autoTest = true;
 
-    // var timer = setInterval(function(){
-    //     var moveInfo = game.move(random(0,3));
-    //     if (!moveInfo){
-    //         clearInterval(timer);
-    //     }
-    // },20);
-
+    if (autoTest) {
+        (function () {
+            var timer = setInterval(function () {
+                var moveInfo = game.move(random(0, 3));
+                if (!moveInfo) {
+                    clearInterval(timer);
+                }
+            }, 20);
+        })();
+    }
 }

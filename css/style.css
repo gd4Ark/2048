@@ -124,7 +124,7 @@ h2.subtitle {
 
 .grid-container,
 .tile-container,
-.over-container {
+.pop-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -139,7 +139,6 @@ h2.subtitle {
 .grid-row {
     display: flex;
     margin-bottom: 2%;
-    /* border: 1px solid blue; */
 }
 
 .grid-row,
@@ -245,23 +244,74 @@ h2.subtitle {
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
 }
 
-.over-container {
+.pop-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    background: rgba(238, 228, 218, 0.5);
+    background: rgba(238, 228, 218, 0.8);
     z-index: 100;
     opacity: 0;
     transition: all 1s ease;
 }
 
-.over-container.action {
+.winning-container p:nth-child(1){
+    transform: rotate(90deg);
+}
+
+.winning-container.action p:nth-child(1){
+    transform-origin: center;
+    animation: winning 1.5s infinite;
+}
+
+.failure-container.action p:nth-child(1){
+    transform-origin: center;
+    animation: failure 5s infinite;
+}
+
+@keyframes winning{
+    0%,25%,50%,75%,100%{
+		transform: rotate(90deg) translateX(-5px);
+	}
+	12.5%{
+		transform: rotate(80deg);
+	}
+	37.5%{
+		transform: rotate(70deg);
+	}
+	62.5%{
+		transform: rotate(100deg);
+	}
+	87.5%{
+		transform: rotate(120deg);
+	}
+}
+
+@keyframes failure{
+    0%,25%,50%,75%,100%{
+		transform: rotate(90deg) scale(0.7,1) rotateX(40deg);
+	}
+	12.5%{
+		transform: rotate(90deg);
+	}
+	37.5%{
+		transform: rotate(90deg);
+	}
+	62.5%{
+		transform: rotate(90deg);
+	}
+	87.5%{
+		transform: rotate(90deg);
+	}
+}
+
+.pop-container.action {
     opacity: 1;
 }
 
-.over-container p {
+.pop-container p {
     font-size: 60px;
     font-weight: bold;
 }
