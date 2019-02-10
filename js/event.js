@@ -31,7 +31,7 @@ function event(game) {
     });
 
     // 自动测试
-    var autoTest = true;
+    var autoTest = false;
 
     if (autoTest) {
         (function () {
