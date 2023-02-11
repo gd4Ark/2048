@@ -1,9 +1,9 @@
 FROM node:boron
 
-RUN mkdir -p /src/app
-WORKDIR /src/app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-RUN git clone https://github.com/showeimer/2048.git .
+COPY . .
 
 RUN npm install
 
