@@ -2,8 +2,9 @@
   "name": "2048",
   "version": "1.0.0",
   "description": "在线玩：https://4ark.me/2048",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
